@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>~To do List~</title>
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;900&family=Martian+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- el defer es para que cargue al final del html -->
+    <script src="script.js" type="text/javascript" defer></script>
+  </head>
+  <body>
+    <div class="list roundBorder">
+      <div class="date">
+        <div class="dateLeft">
+          <div id="dateNumber">23</div>
+          <div>
+            <div id="dateMonth">Sep</div>
+            <div id="dateYear">2023</div>
+          </div>
+        </div>
+        <div id="dateText">Jueves</div>
+      </div>
+      <!--cuando se agregue la tarea vamos a llamar a la funcion addNewTask y vamos a pasar el evento que contiene la informacion del form para poder guardar en este caso la tarea-->
+      <form onsubmit="addNewTask(event)">
+        <!-- el nombre taskText se le da para poder utilizarlo luego con la funcion.autocomplete para que no se vea el historial. -->
+        <input type="text" name="taskText" autocomplete="off" placeholder="Nueva tarea" class="roundBorder"/>
+        <!-- submit es para que te ejecute el evento cuando apretemos el botón  -->
+        <button type="submit" class="addTaskButton">+</button>
+        <!-- type="button para que no se ejecute el submit" y cuando se haga click en el ultimo boton vamos a ejecutar la funcion renderOrderTask para ordenar las tareas  -->
+        <button type="button" class="orderButton roundBorder" onclick="renderOrderedTasks()">Ordenar</button>
+      </form>
+      <div id="tasksContainer"></div>
+    </div>
+  </body>
+</html>
